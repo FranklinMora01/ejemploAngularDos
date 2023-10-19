@@ -1,0 +1,59 @@
+<!-- condicional si errorMessage si tiene texto es porque si hay error  -->
+<div *ngIf="errorMessage.length > 0" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+</div>
+
+<!-- offset-sm-3 -> toma 3 columna de la derecha y 3 de la izquierda las separa y deja las 6 del medio centradas 
+col, col, col,                  col,col,col,col,col,colm                col,col,cpl
+
+-->
+
+<div *ngIf="user; else templateEmpty">
+    <div class="cotainer mt-5 col-sm-4 offset-sm-4">
+        <div  class="card" style="width: 18rem;" >
+            <img src="assets/Usuario.png" class="card-img-top" alt="..." >
+            <div class="card-body" >
+              <h5 class="card-title d-flex justify-content-center">{{ user.name }}</h5>
+              <p class="card-text d-flex justify-content-center">{{ user.email }}</p>
+            </div>
+            <div class="card-body d-flex justify-content-center">
+                <a href="#" class="btn btn-primary">Home</a>
+                <a href="#" class="btn btn-light">Contact</a>
+            </div>
+          </div>
+    </div>
+    
+    <div class="cotainer mt-5 col-sm-6 offset-sm-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Nick</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Dirección</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.address?.street }} - {{ user.address?.suite }}</td>
+                    <!--cuando tiene el ? hace una pregunta si existe la propiedad muestra sino existe siga 
+                        <td>{{ user.address?.street }} - {{ user.address?.suite }}</td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<ng-template #templateEmpty>
+    <div class="alert alert-warning" role="alert">
+        No existe un usuario relacionado con ese ID
+    </div>
+</ng-template>
+
+<!-- 
+<pre>
+    {{ user | json }}
+</pre> -->

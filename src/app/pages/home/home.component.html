@@ -1,0 +1,19 @@
+<h1 class="fast-italic text-center mb-5">Lista de Post</h1>
+
+<div class="row" *ngFor="let post of posts">
+    <div class="col">
+        <h2>{{ post.title.charAt(0).toUpperCase() + post.title.slice(1) }}</h2>
+        <a [routerLink]="['/user', post.userId]">Ver author</a>
+        <p>{{ post.body }}</p>
+        <button class="btn btn-secondary" (click)="obtenerComentariosPorId(post.id)">Comentarios</button>
+        <ng-container *ngFor="let comenFilter of comentariosFiltradosPorPost">
+            <div class="mt-3 col-sm-10 offset-sm-1" *ngIf="comenFilter.postId == post.id">
+                <label class="fw-bold">User: {{ comenFilter.email }} </label>
+                <br>
+                <label class="fw-bold">Repuestas:</label>
+                <p>{{ comenFilter.body }}</p>
+            </div>
+        </ng-container>
+        <hr>
+    </div>
+</div>
