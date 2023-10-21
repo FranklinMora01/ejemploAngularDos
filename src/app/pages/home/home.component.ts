@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit{
   public coments: IComent [] = [];
   public comentariosFiltradosPorPost: IComent[] = [];
 
+  public status: boolean = false;
+
   //constrcutor
   constructor(private dataService: DataService) {
 
@@ -22,15 +24,28 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
     this.dataService.getPosts().subscribe( (data) => this.posts = data);
     this.dataService.getComments().subscribe( (comentarios) => this.coments = comentarios);
-    
+ 
   }
 
 //Metodo que permita filtrar
 //recivimos por parametro el id del posts y necesitamos obtener los comentarios
 // ckick en el boton ver comentarios Post con id
 obtenerComentariosPorId(id: number) {
-  this.comentariosFiltradosPorPost = this.coments.filter( comentarios => comentarios.postId == id);
-  console.log(this.comentariosFiltradosPorPost);
+  this.status = !this.status;
+  /*if(this.status == true){
+    this.comentariosFiltradosPorPost = this.coments.filter( comentarios => comentarios.postId == id);
+  //console.log(this.comentariosFiltradosPorPost);
+  }else 
+  {
+    this.comentariosFiltradosPorPost = [];
+    
+  }*/
+
+  //this.comentariosFiltradosPorPost = this.status? this.coments.filter( comentarios => comentarios.postId == id) : this.comentariosFiltradosPorPost = []
+  
 }
+
+
+
 
 }

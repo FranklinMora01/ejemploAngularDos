@@ -25,6 +25,10 @@ export class DataService {
     return this.http.get<IUser>(`https://jsonplaceholder.typicode.com/users/${id}`);
   }
 
+  getUsers():Observable<IUser[]>{
+    return this.http.get<IUser[]>('https://jsonplaceholder.typicode.com/users');
+  }
+
   /**como manejar un error desde el servicio 
    
     getUserById(id: number): Observable <IUser> | Observable<any> {

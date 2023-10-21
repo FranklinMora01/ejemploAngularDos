@@ -5,7 +5,11 @@
         <h2>{{ post.title.charAt(0).toUpperCase() + post.title.slice(1) }}</h2>
         <a [routerLink]="['/user', post.userId]">Ver author</a>
         <p>{{ post.body }}</p>
-        <button class="btn btn-secondary" (click)="obtenerComentariosPorId(post.id)">Comentarios</button>
+        <!-- <button class="btn btn-secondary" (click)="obtenerComentariosPorId(post.id)">Comentarios</button> -->
+        <div *ngIf="!status; else templateEmpty">
+            <button class="btn btn-secondary" (click)="obtenerComentariosPorId(post.id)">Mostrar Comentarios</button> 
+        </div>
+        
         <ng-container *ngFor="let comenFilter of comentariosFiltradosPorPost">
             <div class="mt-3 col-sm-10 offset-sm-1" *ngIf="comenFilter.postId == post.id">
                 <label class="fw-bold">User: {{ comenFilter.email }} </label>
@@ -16,4 +20,8 @@
         </ng-container>
         <hr>
     </div>
+    <ng-template #templateEmpty>
+        <button class="btn btn-danger" (click)="obtenerComentariosPorId(post.id)">Ocultar Comentarios</button> 
+    </ng-template>
 </div>
+
