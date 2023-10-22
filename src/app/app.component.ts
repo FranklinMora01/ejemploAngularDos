@@ -10,6 +10,7 @@ export class AppComponent {
 
   navbarOpts = [
     { path: '/home', name: 'Home'},
-    { path: '/users', name: 'Users'}
+    { path: '/users', name: 'Users'},
+    { path: '/photos', name: 'Photos'},
   ]
 }

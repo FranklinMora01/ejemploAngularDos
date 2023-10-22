@@ -10,6 +10,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { UserComponent } from './pages/user/user.component';
 import { UsersComponent } from './pages/users/users.component';
 import { Error404Component } from './pages/error404/error404.component';
+import { ContenedorFotografiasComponent } from './pages/contenedor-fotografias/contenedor-fotografias.component';
+import { FotoDetalleComponent } from './pages/foto-detalle/foto-detalle.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { Error404Component } from './pages/error404/error404.component';
     HomeComponent,
     UserComponent,
     UsersComponent,
-    Error404Component
+    Error404Component,
+    ContenedorFotografiasComponent,
+    FotoDetalleComponent
   ],
   imports: [
     BrowserModule,
