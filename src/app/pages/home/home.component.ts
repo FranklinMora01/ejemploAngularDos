@@ -41,7 +41,7 @@ obtenerComentariosPorId(id: number) {
     
   }*/
 
-  //this.comentariosFiltradosPorPost = this.status? this.coments.filter( comentarios => comentarios.postId == id) : this.comentariosFiltradosPorPost = []
+  this.comentariosFiltradosPorPost = this.status? this.coments.filter( comentarios => comentarios.postId == id) : this.comentariosFiltradosPorPost = []
   
 }
 
